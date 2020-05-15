@@ -85,3 +85,22 @@ def variety_detail(request, variety_id):
         }
 
         return render(request, template_name, context)
+
+    elif request.method == 'POST':
+        form_data = request.POST
+
+        if (
+            "actual_method" in form_data
+            and form_data["actual_method"] == "PUT"
+        ):
+            with sqlite3.connect(Connection.db_path) as conn:
+                db_cursor = conn.cursor()
+
+                db_cursor.execute("""
+                UPDATE icecreamapp_variety
+                SET country_of_origin = ?
+                WHERE id = ?
+                """,
+                (
+                    form_data['country_of_origin'], variety_id,
+                ))

@@ -15,10 +15,10 @@
   {% endif %}
 </section>
 
-{% comment %} <form action="{% url 'icecreamapp:variety_edit_form' variety.id %}" method="GET">
+<form action="{% url 'icecreamapp:variety_edit_form' variety.id %}" method="GET">
     {% csrf_token %}
     <button>Edit</button>
-</form> {% endcomment %}
+</form>
 
 <section id="variety-actions" style="display: flex;"></section>
 {% endblock content %}

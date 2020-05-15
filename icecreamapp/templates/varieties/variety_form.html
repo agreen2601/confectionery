@@ -1,20 +1,32 @@
 {% block content %}
 
-        <h1>Add Variety</h1>
+    {% if variety.id is None %}
+        <h1>Add variety:</h1>
+    {% else %}
+        <h1>Update variety info</h1>
+    {% endif %}
 
         <form action="{% url 'icecreamapp:varieties' %}" method="post">
 
         {% csrf_token %}
         <fieldset>
             <label for="name">Name: </label>
-            <input id="name" type="text" name="name" value="{{ variety.name }} ">
+            {% if variety.id is not None %}
+                <label>{{ variety.name }}</label>
+            {% else %}
+                <input id="name" type="text" name="name" value="{{ variety.name }} ">
+            {% endif %}
         </fieldset>
         <fieldset>
             <label for="country_of_origin">Country of Origin: </label>
             <input id="country_of_origin" type="text" name="country_of_origin" value="{{ variety.country_of_origin }}">
         </fieldset>
 
-        <input type="submit" value="Create" />
-
+        {% if variety.id is not None %}
+            <input type="hidden" name="actual_method" value="PUT">
+            <input type="submit" value="Update" />
+        {% else %}
+            <input type="submit" value="Create" />
+        {% endif %}
     
 {% endblock %}
