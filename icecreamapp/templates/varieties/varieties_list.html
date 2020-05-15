@@ -1,0 +1,13 @@
+{% block content %}
+<h1>Varieties</h1>
+    {% comment %} <a href="{% url 'icecreamapp:variety_form' %}">Add New Variety</a> {% endcomment %}
+<ol>
+{% for variety in varieties %}
+    <li>
+        {% comment %} <a class="variety__name" href="{% url 'icecreamapp:variety' variety.id %}"> {% endcomment %}
+            {{ variety.name }}
+        {% comment %} </a> {% endcomment %}
+    </li>
+{% endfor %}
+</ol>
+{% endblock content %}

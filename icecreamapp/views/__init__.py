@@ -1,0 +1,1 @@
+from .varieties.variety_list import variety_list

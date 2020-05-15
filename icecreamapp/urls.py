@@ -1,6 +1,10 @@
 from django.urls import path
-from .views import *
+from icecreamapp.views import *
+from icecreamapp.models import *
 
 app_name = "icecreamapp"
 
-urlpatterns = []
+urlpatterns = [
+    path('', variety_list , name='varieties'),
+
+]
