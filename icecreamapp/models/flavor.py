@@ -6,7 +6,6 @@ class Flavor(models.Model):
 
     name = models.CharField(max_length=100)
     alcohol_percent = models.IntegerField()
-    varieties = models.ManyToManyField("Variety", through='VarietyFlavor')
 
     class Meta:
         verbose_name = ("Flavor")

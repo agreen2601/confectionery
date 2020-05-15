@@ -1,0 +1,24 @@
+{% block content %}
+<section id="variety-details">
+  <h1>{{ variety.name }} originally made in {{ variety.country_of_origin }}</h1>
+
+  <h5>{{flavors.name}}</h5>
+  {% if flavors %}
+    <ul>
+    <h2>Flavors:</h2>
+      {% for flavor in flavors %}
+          <li>{{ flavor.name }} often enjoyed with {{flavor.toppings}}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <h2>There are no flavors of this variety</h2>
+  {% endif %}
+</section>
+
+{% comment %} <form action="{% url 'icecreamapp:variety_edit_form' variety.id %}" method="GET">
+    {% csrf_token %}
+    <button>Edit</button>
+</form> {% endcomment %}
+
+<section id="variety-actions" style="display: flex;"></section>
+{% endblock content %}

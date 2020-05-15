@@ -4,9 +4,9 @@
 <ol>
 {% for variety in varieties %}
     <li>
-        {% comment %} <a class="variety__name" href="{% url 'icecreamapp:variety' variety.id %}"> {% endcomment %}
+        <a class="variety__name" href="{% url 'icecreamapp:variety' variety.id %}">
             {{ variety.name }}
-        {% comment %} </a> {% endcomment %}
+        </a>
     </li>
 {% endfor %}
 </ol>

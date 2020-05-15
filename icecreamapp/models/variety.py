@@ -6,7 +6,7 @@ class Variety(models.Model):
 
     name = models.CharField(max_length=100)
     country_of_origin = models.CharField(max_length=100)
-    flavors = models.ManyToManyField("Flavor", through='VarietyFlavor')
+    # flavors = models.ManyToManyField("Flavor", through='VarietyFlavor')
 
     class Meta:
         verbose_name = ("Variety")
