@@ -104,3 +104,5 @@ def variety_detail(request, variety_id):
                 (
                     form_data['country_of_origin'], variety_id,
                 ))
+
+        return redirect(reverse('icecreamapp:varieties'))

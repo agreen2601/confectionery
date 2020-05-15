@@ -6,7 +6,11 @@
         <h1>Update variety info</h1>
     {% endif %}
 
+    {% if variety.id is not None %}
+        <form action="{% url 'icecreamapp:variety' variety.id %}" method="post">
+    {% else %}
         <form action="{% url 'icecreamapp:varieties' %}" method="post">
+    {% endif %}
 
         {% csrf_token %}
         <fieldset>
