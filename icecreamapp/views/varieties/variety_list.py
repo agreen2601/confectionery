@@ -39,16 +39,16 @@ def variety_list(request):
 
         return render(request, template, context)
 
-    # elif request.method == 'POST':
-    #     form_data = request.POST
+    elif request.method == 'POST':
+        form_data = request.POST
 
-    #     with sqlite3.connect(Connection.db_path) as conn:
-    #         db_cursor = conn.cursor()
+        with sqlite3.connect(Connection.db_path) as conn:
+            db_cursor = conn.cursor()
 
-    #         db_cursor.execute("""
-    #         INSERT INTO hrapp_employee (first_name, last_name, start_date, department_id, is_supervisor)
-    #         VALUES (?, ?, ?, ?, 0)
-    #         """,
-    #         (form_data['first_name'], form_data['last_name'], form_data['start_date'], form_data['department']))
+            db_cursor.execute("""
+            INSERT INTO icecreamapp_variety (name, country_of_origin)
+            VALUES (?, ?)
+            """,
+            (form_data['name'], form_data['country_of_origin']))
 
-    #     return redirect(reverse('hrapp:employees'))
+        return redirect(reverse('icecreamapp:varieties'))

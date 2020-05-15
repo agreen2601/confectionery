@@ -1,6 +1,6 @@
 {% block content %}
 <h1>Varieties</h1>
-    {% comment %} <a href="{% url 'icecreamapp:variety_form' %}">Add New Variety</a> {% endcomment %}
+    <a href="{% url 'icecreamapp:variety_form' %}">Add New Variety</a>
 <ol>
 {% for variety in varieties %}
     <li>

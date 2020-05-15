@@ -1,0 +1,20 @@
+{% block content %}
+
+        <h1>Add Variety</h1>
+
+        <form action="{% url 'icecreamapp:varieties' %}" method="post">
+
+        {% csrf_token %}
+        <fieldset>
+            <label for="name">Name: </label>
+            <input id="name" type="text" name="name" value="{{ variety.name }} ">
+        </fieldset>
+        <fieldset>
+            <label for="country_of_origin">Country of Origin: </label>
+            <input id="country_of_origin" type="text" name="country_of_origin" value="{{ variety.country_of_origin }}">
+        </fieldset>
+
+        <input type="submit" value="Create" />
+
+    
+{% endblock %}
